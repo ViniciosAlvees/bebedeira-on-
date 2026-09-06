@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Bebedeira On Fire! 🔥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-lava">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="blob b4"></div>
+  <div class="embers" id="embers"></div>
+  <div class="drinks-strip">
+    <span>🍺</span><span>🍸</span><span>🥃</span><span>🍹</span><span>🍷</span><span>🍾</span><span>🍺</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <header>
+    <h1 class="logo">Bebedeira<br>On Fire!</h1>
+    <p class="tagline">gire · beba · não faça careta</p>
+  </header>
+
+  <!-- SETUP SCREEN -->
+  <div class="screen" id="setup-screen">
+    <div class="card">
+      <label for="player-count">Quantos cachaceiros vão entrar na onda hoje?</label>
+      <input type="number" id="player-count" min="2" max="12" value="4">
+      <button class="btn-primary" style="margin-top:14px" id="btn-confirm-count">Confirmar</button>
+
+      <div class="name-list hidden" id="name-list"></div>
+      <button class="btn-primary hidden" style="margin-top:16px" id="btn-start-game">🔥 Começar a bagunça!</button>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div class="screen hidden" id="game-screen">
+    <div class="scoreboard" id="scoreboard"></div>
+
+    <div class="wheel-zone">
+      <div class="pointer"></div>
+      <div class="wheel-outer">
+        <div class="wheel" id="wheel"></div>
+      </div>
+      <button class="flame-center" id="btn-spin" title="Play No Game">🔥</button>
+    </div>
+    <p class="spin-hint" id="spin-hint">toque no fogo para girar</p>
+
+    <button class="btn-ghost" id="btn-reset" style="align-self:center;">Reiniciar jogo</button>
+  </div>
+
+  <footer class="small-note">jogue com responsabilidade · +18 · beba com moderação</footer>
+</div>
+
+<!-- CHALLENGE MODAL -->
+<div class="modal-overlay hidden" id="challenge-modal">
+  <div class="modal">
+    <p class="who" id="chal-name"></p>
+    <p class="shots" id="chal-shots"></p>
+    <p class="instr" id="chal-instr"></p>
+    <div class="choices">
+      <button class="btn-good" id="btn-no-careta">😎 Bebi sem careta (+3)</button>
+      <button class="btn-bad" id="btn-yes-careta">😖 Fiz careta (0)</button>
+    </div>
+  </div>
+</div>
+
+<!-- TIEBREAK MODAL -->
+<div class="modal-overlay hidden" id="tie-modal">
+  <div class="modal">
+    <p class="who">⚡ Empate em 1º lugar!</p>
+    <p class="instr">Critério de desempate: quem beber <strong>3 shots</strong> mais rápido vence. Cronometre cada um, na ordem:</p>
+    <div id="tie-list"></div>
+    <button class="btn-ghost" id="btn-tie-close" style="margin-top:10px; width:100%;">Fechar</button>
+  </div>
+</div>
+
+<!-- WINNER MODAL -->
+<div class="modal-overlay hidden" id="winner-modal">
+  <div class="modal winner-modal">
+    <p class="trophy">🏆🔥</p>
+    <p class="who" id="winner-name"></p>
+    <p class="instr">é o campeão da Bebedeira On Fire! Todo mundo brinda pra ele(a).</p>
+    <button class="btn-primary" id="btn-play-again">Jogar de novo</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
